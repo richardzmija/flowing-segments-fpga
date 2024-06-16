@@ -5,8 +5,8 @@ entity seven_segment_mapper is
     Port (
         clk : in STD_LOGIC;  -- The same block signal as for state_controller
         reset : in STD_LOGIC;  -- Reset signal
-        state : in STD_LOGIC_VECTOR(2 downto 0)  -- 3-bit input from state_controller
-        seg1 : out STD_LOGIC_VECTOR(6 downto 0)  -- Segments for the first digit
+        state : in STD_LOGIC_VECTOR(2 downto 0);  -- 3-bit input from state_controller
+        seg1 : out STD_LOGIC_VECTOR(6 downto 0);  -- Segments for the first digit
         seg2 : out STD_LOGIC_VECTOR(6 downto 0)  -- Segments for the second digit
     );
 end seven_segment_mapper;

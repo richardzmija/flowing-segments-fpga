@@ -7,7 +7,7 @@ entity debouncer is
         clk : in STD_LOGIC;  -- 1kHz clock signal
         reset : in STD_LOGIC;  -- Reset signal
         button_in : in STD_LOGIC;  -- Raw button input (active-low)
-        debounced_out : out STD_LOGIC;  -- Debounced button output
+        debounced_out : out STD_LOGIC  -- Debounced button output
     );
 end debouncer;
 

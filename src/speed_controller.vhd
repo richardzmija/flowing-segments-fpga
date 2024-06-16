@@ -5,7 +5,7 @@ entity speed_controller is
     Port (
         clk_in : in STD_LOGIC;  -- Slowed input clock signal
         button_speed : in STD_LOGIC;  -- Control signal for frequency adjustment
-        clk_out : out STD_LOGIC;  -- Output transformed clock signal
+        clk_out : out STD_LOGIC  -- Output transformed clock signal
     );
 end speed_controller;
 

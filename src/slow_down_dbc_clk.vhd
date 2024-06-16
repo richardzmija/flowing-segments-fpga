@@ -5,7 +5,7 @@ entity dbc_clock_s is
     Port (
         clk_in : in STD_LOGIC;  -- Input clock signal at 25.175 MHz
         reset : in STD_LOGIC;  -- Input reset signal for initialization and testing
-        clk_out : out STD_LOGIC;  -- Output clock signal at 1 kHz
+        clk_out : out STD_LOGIC  -- Output clock signal at 1 kHz
     );
 end dbc_clock_s;
 

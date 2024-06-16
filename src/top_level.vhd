@@ -7,7 +7,7 @@ entity top_level is
         button_speed : in STD_LOGIC;  -- Button for speed control
         button_dir : in STD_LOGIC;  -- Button for direction control
         display1 : out STD_LOGIC_VECTOR(6 downto 0);  -- Values for the first digit
-        display2 : out STD_LOGIC_VECTOR(6 downto 0);  -- Values for the second digit
+        display2 : out STD_LOGIC_VECTOR(6 downto 0)  -- Values for the second digit
     );
 end top_level;
 
@@ -17,7 +17,7 @@ architecture structural of top_level is
         Port (
         clk_in : in STD_LOGIC;  -- Input clock signal at 25.175 MHz
         reset : in STD_LOGIC;  -- Input reset signal for initialization and testing
-        clk_out : out STD_LOGIC;  -- Output clock signal at 1 Hz
+        clk_out : out STD_LOGIC  -- Output clock signal at 1 Hz
     );
     end component;
 
@@ -25,7 +25,7 @@ architecture structural of top_level is
         Port (
         clk_in : in STD_LOGIC;  -- Input clock signal at 25.175 MHz
         reset : in STD_LOGIC;  -- Input reset signal for initialization and testing
-        clk_out : out STD_LOGIC;  -- Output clock signal at 1 kHz
+        clk_out : out STD_LOGIC  -- Output clock signal at 1 kHz
     );
     end component;
 
@@ -34,7 +34,7 @@ architecture structural of top_level is
         clk : in STD_LOGIC;  -- 1kHz clock signal
         reset : in STD_LOGIC;  -- Reset signal
         button_in : in STD_LOGIC;  -- Raw button input (active-low)
-        debounced_out : out STD_LOGIC;  -- Debounced button output
+        debounced_out : out STD_LOGIC  -- Debounced button output
     );
     end component;
 
@@ -42,7 +42,7 @@ architecture structural of top_level is
         Port (
         clk_in : in STD_LOGIC;  -- Slowed input clock signal
         button_speed : in STD_LOGIC;  -- Control signal for frequency adjustment
-        clk_out : out STD_LOGIC;  -- Output transformed clock signal
+        clk_out : out STD_LOGIC  -- Output transformed clock signal
     );
     end component;
 
@@ -58,8 +58,8 @@ architecture structural of top_level is
         Port (
         clk : in STD_LOGIC;  -- The same block signal as for state_controller
         reset : in STD_LOGIC;  -- Reset signal
-        state : in STD_LOGIC_VECTOR(2 downto 0)  -- 3-bit input from state_controller
-        seg1 : out STD_LOGIC_VECTOR(6 downto 0)  -- Segments for the first digit
+        state : in STD_LOGIC_VECTOR(2 downto 0);  -- 3-bit input from state_controller
+        seg1 : out STD_LOGIC_VECTOR(6 downto 0);  -- Segments for the first digit
         seg2 : out STD_LOGIC_VECTOR(6 downto 0)  -- Segments for the second digit
     );
     end component;
