@@ -15,7 +15,7 @@ architecture behavioral of state_controller is
     -- indexed from 2 to 0, with all bits initialized to '0'.
     -- UNSIGNED is used because we want to have access to arithmetic
     -- operations on the number and the value is always non-negative.
-    signal count_reg : UNSIGNED(2 downto 0) := (others => '0');
+    signal count_reg : UNSIGNED(2 downto 0) := "000";
 
 begin
 
