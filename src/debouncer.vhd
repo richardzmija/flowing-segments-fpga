@@ -22,23 +22,27 @@ architecture behavioral of debouncer is
     signal shift_reg : STD_LOGIC_VECTOR(19 downto 0) := (others => '1');
     signal debounced_out_internal : STD_LOGIC := '1';
 
+    -- Constants for checking if the signal is stable
+    constant ALL_ZEROS : STD_LOGIC_VECTOR(19 downto 0) := (others => '0');
+    constant ALL_ONES : STD_LOGIC_VECTOR(19 downto 0) := (others => '1');
+
 begin
 
     process (clk, reset)
     begin
 
         if reset = '1' then
-            shift_reg <= (others => '1');  -- Reset to '1' for active-low logic
-            debounced_out <= '1';
+            shift_reg <= ALL_ONES;  -- Reset to '1' for active-low logic
+            debounced_out_internal <= '1';
         elsif rising_edge(clk) then
             -- Enqueue a new sample
             shift_reg <= shift_reg(18 downto 0) & button_in;
 
             -- Check if all bits in the shift register are '0' (button pressed)
-            if shift_reg = (others => '0') then
+            if shift_reg = ALL_ZEROS then
                 debounced_out_internal <= '0';
             -- Check if all bits in the shift register are '1' (button released)
-            elsif shift_reg = (others => '1') then
+            elsif shift_reg = ALL_ONES then
                 debounced_out_internal <= '1';
             end if;
         end if;
